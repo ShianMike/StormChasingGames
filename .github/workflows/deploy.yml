@@ -37,6 +37,7 @@ jobs:
         run: npm ci
 
       - name: Fetch live Roblox data
+        continue-on-error: true
         run: node scripts/fetch-data.js
 
       - name: Build

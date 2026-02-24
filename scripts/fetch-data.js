@@ -100,6 +100,13 @@ async function main() {
 }
 
 main().catch((err) => {
-  console.error("Failed to fetch data:", err);
-  process.exit(1);
+  console.error("Failed to fetch live data:", err.message);
+  console.log("Writing empty fallback so the build can continue...");
+
+  const outDir = join(__dirname, "..", "public", "data");
+  mkdirSync(outDir, { recursive: true });
+  const fallback = { data: [], lastUpdated: new Date().toISOString(), error: err.message };
+  writeFileSync(join(outDir, "live-games.json"), JSON.stringify(fallback, null, 2));
+
+  console.log("Fallback file written — app will use static data.");
 });

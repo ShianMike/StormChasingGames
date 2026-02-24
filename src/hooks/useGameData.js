@@ -21,6 +21,12 @@ export default function useGameData() {
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const json = await res.json();
 
+      // If no live data (empty fallback), keep using static data
+      if (!json.data || json.data.length === 0) {
+        setLoading(false);
+        return;
+      }
+
       // Merge live data with static fallback for fields the API doesn't provide
       const merged = json.data.map((live) => {
         const fallback = fallbackGames.find(
