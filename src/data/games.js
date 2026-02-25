@@ -183,6 +183,7 @@ export const comingSoonGames = [
     name: "Severity",
     description: "A new storm chasing experience coming soon to Roblox. Stay tuned for more details!",
     status: "Coming Soon",
+    discordLink: "https://discord.gg/severity",
   },
 ];
 

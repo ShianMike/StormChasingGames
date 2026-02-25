@@ -13,7 +13,19 @@ function ComingSoon({ games }) {
             <div className="coming-soon-info">
               <h3 className="coming-soon-name">{game.name}</h3>
               <p className="coming-soon-desc">{game.description}</p>
-              <span className="coming-soon-badge">{game.status}</span>
+              <div className="coming-soon-actions">
+                <span className="coming-soon-badge">{game.status}</span>
+                {game.discordLink && (
+                  <a
+                    href={game.discordLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="coming-soon-discord"
+                  >
+                    Discord
+                  </a>
+                )}
+              </div>
             </div>
           </div>
         ))}
