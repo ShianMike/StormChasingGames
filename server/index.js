@@ -12,8 +12,8 @@ const GAMES = [
   { placeId: 16272604134, universeId: 5615055859 },
   { placeId: 17759606919, universeId: 6083162964 },
   { placeId: 16303389919, universeId: 5624742469 },
-  { placeId: 114925869242419, universeId: 8925404604 },
-  { placeId: 16491465835, universeId: 5680730476 },
+  { placeId: 9544117271, universeId: 3555859233 },
+  { placeId: 17497598593, universeId: 5988841742 },
   { placeId: 124621117378550, universeId: 7512606763 },
   { placeId: 93120267632796, universeId: 6975389394 },
 ];

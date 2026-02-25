@@ -2,8 +2,10 @@ import { useState, useMemo } from "react";
 import Header from "./components/Header";
 import StatsBar from "./components/StatsBar";
 import GameGrid from "./components/GameGrid";
+import ComingSoon from "./components/ComingSoon";
 import Footer from "./components/Footer";
 import useGameData from "./hooks/useGameData";
+import { comingSoonGames } from "./data/games";
 import "./App.css";
 
 function App() {
@@ -70,6 +72,7 @@ function App() {
         ) : (
           <GameGrid games={filteredAndSorted} view={view} />
         )}
+        <ComingSoon games={comingSoonGames} />
       </main>
       <Footer />
     </>
