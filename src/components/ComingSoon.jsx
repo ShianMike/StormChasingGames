@@ -9,7 +9,18 @@ function ComingSoon({ games }) {
       <div className="coming-soon-grid">
         {games.map((game) => (
           <div key={game.id} className="coming-soon-card">
-            <div className="coming-soon-icon">🌪️</div>
+            {game.thumbnailUrl ? (
+              <div className="coming-soon-thumb-wrapper">
+                <img
+                  src={game.thumbnailUrl}
+                  alt={game.name}
+                  className="coming-soon-thumb"
+                  loading="lazy"
+                />
+              </div>
+            ) : (
+              <div className="coming-soon-icon">🌪️</div>
+            )}
             <div className="coming-soon-info">
               <h3 className="coming-soon-name">{game.name}</h3>
               <p className="coming-soon-desc">{game.description}</p>

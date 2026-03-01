@@ -16,6 +16,8 @@ const GAMES = [
   { placeId: 17497598593, universeId: 5988841742 },
   { placeId: 124621117378550, universeId: 7512606763 },
   { placeId: 93120267632796, universeId: 6975389394 },
+  { placeId: 194184689, universeId: 91249196 },
+  { placeId: 15141354412, universeId: 5219057401 },
 ];
 
 const universeIds = GAMES.map((g) => g.universeId).join(",");
