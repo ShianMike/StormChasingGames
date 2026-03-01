@@ -228,7 +228,7 @@ export const comingSoonGames = [
     description: "A new storm chasing experience coming soon to Roblox. Stay tuned for more details!",
     status: "Coming Soon",
     discordLink: "https://discord.gg/severity",
-    thumbnailUrl: "https://img.youtube.com/vi/cu7N30nBMlk/maxresdefault.jpg",
+    videoId: "cu7N30nBMlk",
   },
   {
     id: "coming-2",

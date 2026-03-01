@@ -38,8 +38,40 @@
   transition: border-color 0.3s ease;
 }
 
+.coming-soon-card.has-video {
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+}
+
+.coming-soon-card.has-video .coming-soon-info {
+  padding: 1rem 1.25rem 1.25rem;
+}
+
 .coming-soon-card:hover {
   border-color: rgba(234, 179, 8, 0.45);
+}
+
+.coming-soon-video-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.coming-soon-video {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  border: none;
+  pointer-events: none;
+}
+
+.coming-soon-card.has-video:hover .coming-soon-video {
+  pointer-events: auto;
 }
 
 .coming-soon-thumb-wrapper {

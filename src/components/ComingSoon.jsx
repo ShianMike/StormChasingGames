@@ -8,8 +8,23 @@ function ComingSoon({ games }) {
       <h2 className="coming-soon-heading">Coming Soon</h2>
       <div className="coming-soon-grid">
         {games.map((game) => (
-          <div key={game.id} className="coming-soon-card">
-            {game.thumbnailUrl ? (
+          <div
+            key={game.id}
+            className={`coming-soon-card${game.videoId ? " has-video" : ""}`}
+          >
+            {game.videoId ? (
+              <div className="coming-soon-video-wrapper">
+                <iframe
+                  src={`https://www.youtube.com/embed/${game.videoId}?autoplay=1&mute=1&loop=1&playlist=${game.videoId}&controls=0&showinfo=0&rel=0&modestbranding=1`}
+                  title={game.name}
+                  className="coming-soon-video"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                  loading="lazy"
+                  frameBorder="0"
+                />
+              </div>
+            ) : game.thumbnailUrl ? (
               <div className="coming-soon-thumb-wrapper">
                 <img
                   src={game.thumbnailUrl}
