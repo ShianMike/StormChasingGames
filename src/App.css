@@ -80,3 +80,11 @@
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
+
+/* Charts stack */
+.charts-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-bottom: 2rem;
+}

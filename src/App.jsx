@@ -1,6 +1,10 @@
 import { useState, useMemo } from "react";
 import Header from "./components/Header";
 import StatsBar from "./components/StatsBar";
+import {
+  PlayerCountChart,
+  ServerActivityChart,
+} from "./components/charts";
 import GameGrid from "./components/GameGrid";
 import ComingSoon from "./components/ComingSoon";
 import Footer from "./components/Footer";
@@ -9,7 +13,7 @@ import { comingSoonGames } from "./data/games";
 import "./App.css";
 
 function App() {
-  const { games, loading, error, lastUpdated } = useGameData();
+  const { games, loading, error, lastUpdated, playerHistory, visitHistory } = useGameData();
   const [searchQuery, setSearchQuery] = useState("");
   const [sortBy, setSortBy] = useState("visits");
   const [view, setView] = useState("grid");
@@ -64,6 +68,10 @@ function App() {
           </div>
         )}
         <StatsBar games={games} />
+        <section className="charts-section">
+          <PlayerCountChart games={games} playerHistory={playerHistory} />
+          <ServerActivityChart games={games} visitHistory={visitHistory} />
+        </section>
         {loading ? (
           <div className="loading-spinner">
             <div className="spinner"></div>

@@ -1,0 +1,244 @@
+/* Charts.css — shared styles for chart wrapper cards. */
+
+.chart-wrap {
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 1.25rem 1.5rem;
+  overflow: hidden;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.chart-wrap:hover {
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 24px rgba(99, 102, 241, 0.03);
+}
+
+/* Hero card (PlayerCountChart) */
+.chart-wrap--hero {
+  border-color: rgba(99, 102, 241, 0.12);
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.03) 0%,
+    rgba(255, 255, 255, 0.015) 100%
+  );
+}
+
+.chart-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.chart-head-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.chart-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.88);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.chart-sub {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.chart-stat {
+  font-size: 0.74rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 500;
+}
+
+/* Live pulsing dot */
+.chart-live-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 6px rgba(34, 197, 94, 0.6);
+  animation: livePulse 2s ease-in-out infinite;
+}
+
+@keyframes livePulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 6px rgba(34, 197, 94, 0.6); }
+  50% { opacity: 0.5; box-shadow: 0 0 12px rgba(34, 197, 94, 0.3); }
+}
+
+/* Hint text for when history hasn't built up yet */
+.chart-hint {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.3);
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+/* Tab strip (range selector) */
+.chart-tabs {
+  display: flex;
+  gap: 2px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 8px;
+  padding: 2px;
+}
+
+.chart-tab {
+  all: unset;
+  cursor: pointer;
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.4);
+  transition: all 0.15s;
+}
+
+.chart-tab:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.chart-tab--active {
+  background: rgba(99, 102, 241, 0.2);
+  color: #a5b4fc;
+}
+
+.chart-tab--disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+
+/* Controls row (log toggle + range tabs) */
+.chart-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chart-log-toggle {
+  all: unset;
+  cursor: pointer;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.15s;
+}
+
+.chart-log-toggle:hover {
+  color: rgba(255, 255, 255, 0.55);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.chart-log-toggle--active {
+  color: #a5b4fc;
+  background: rgba(99, 102, 241, 0.15);
+  border-color: rgba(99, 102, 241, 0.25);
+}
+
+/* Custom interactive legend */
+.chart-legend {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 4px;
+  margin-bottom: 0.6rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.chart-legend-pill {
+  all: unset;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px;
+  border-radius: 14px;
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.chart-legend-pill:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.chart-legend-pill--off {
+  opacity: 0.3;
+  text-decoration: line-through;
+  border-color: transparent;
+}
+
+.chart-legend-pill--off:hover {
+  opacity: 0.5;
+}
+
+.chart-legend-swatch {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Canvas containers */
+.chart-body {
+  position: relative;
+  height: 260px;
+}
+
+/* Taller charts for horizontal bars with 10 labels */
+.chart-body--tall {
+  height: 400px;
+}
+
+/* Wide chart for time-series line (hero chart) */
+.chart-body--wide {
+  height: 280px;
+}
+
+/* Doughnut charts with right legend */
+.chart-body--donut {
+  height: 300px;
+}
+
+@media (max-width: 640px) {
+  .chart-body {
+    height: 200px;
+  }
+
+  .chart-body--tall {
+    height: 340px;
+  }
+
+  .chart-body--wide {
+    height: 260px;
+  }
+
+  .chart-body--donut {
+    height: 240px;
+  }
+
+  .chart-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
