@@ -158,7 +158,7 @@ export default function ServerActivityChart({ games, visitHistory }) {
             max: computedYMax,
             ticks: {
               ...baseCartesianOptions.scales.y.ticks,
-              callback: (v) => v.toLocaleString(),
+              callback: (v) => Math.round(v).toLocaleString(),
             },
           },
         },

@@ -159,7 +159,7 @@ export default function PlayerCountChart({ games, playerHistory }) {
             max: computedYMax,
             ticks: {
               ...baseCartesianOptions.scales.y.ticks,
-              callback: (v) => v.toLocaleString(),
+              callback: (v) => Math.round(v).toLocaleString(),
             },
           },
         },
